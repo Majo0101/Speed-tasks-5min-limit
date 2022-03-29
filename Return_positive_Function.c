@@ -15,6 +15,6 @@ int main(){
 }
 
 int abs(int a ){
-    signed int tuc = a;
-    return tuc;
+    a = (signed)a;
+    return a;
 }
