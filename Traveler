@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define ZERO 0
+#define AND &&
+
+int arr[7][7];
+int counter = ZERO;
+int position = 25;
+
+void playTable();
+void tableInit(int position);
+
+char*futut[] = {"North", "East", "South", "West"};
+
+enum{North, East, South, West};
+
+int main () {
+
+    srand((time)NULL);
+
+
+    playTable();
+
+    printf("\n");
+
+    for (int i = 0; i < 10; ++i) {
+
+        if(position >= 0 AND position < 50){
+            tableInit(position);
+        }else{
+            printf("The ground is flat! You fell for the texture\n");
+        }
+
+        int smer = rand() % 4;
+        printf("%s\n", futut[smer]);
+
+        if(smer==West) { position = position - 1;}
+        if(smer==East) { position = position + 1;}
+        if(smer==South){ position = position + 7;}
+        if(smer==North){ position = position - 7;}
+    }
+}
+
+
+void playTable (){
+    printf("   -------------------\n");
+    for (int i = 0; i < 7; i++) {
+        printf(" ");
+        for (int j = 0; j < 7; j++) {
+            counter++;
+            printf("  %d", arr[i][j] = 0);
+        }
+        printf("\n");
+    }
+    printf("   -------------------\n");
+
+    counter = ZERO;
+}
+
+
+void tableInit(int position){
+    printf("   -------------------\n");
+    for (int i = 0; i < 7; i++) {
+        printf(" ");
+        for (int j = 0; j < 7; j++) {
+            counter++;
+            if(counter == position){
+                printf("  %d", arr[i][j] += 1);
+            }else{
+                printf("  %d", arr[i][j]);
+            }
+        }
+        printf("\n");
+    }
+    printf("   -------------------\n");
+
+    counter = ZERO;
+}
